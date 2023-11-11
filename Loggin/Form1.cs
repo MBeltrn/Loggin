@@ -15,28 +15,24 @@ namespace Loggin
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             btnLogin = new Button();
-            InitializeControls(); // Llama a un método para crear los controles.
-
-            // Establecer el enfoque en el botón de inicio de sesión
+            InitializeControls(); 
+            // Dejamos el foco en el Btn 
             this.ActiveControl = btnLogin;
         }
 
         private void InitializeControls()
-        {
-            // Crea un cuadro de texto para el nombre de usuario con texto de marcador de posición
+        { 
             txtUsername = CreatePlaceholderTextBox("Email", new System.Drawing.Point(100, 50));
 
-            // Crea un cuadro de texto para la contraseña con texto de marcador de posición
-            txtPassword = CreatePlaceholderTextBox("Contraseña", new System.Drawing.Point(100, 80), true);
+            txtPassword = CreatePlaceholderTextBox("ContraseÃ±a", new System.Drawing.Point(100, 80), true);
 
-            // Crea un botón para iniciar sesión
             btnLogin = new Button
             {
-                Text = "Iniciar Sesión",
+                Text = "Iniciar SesiÃ³n",
                 Location = new System.Drawing.Point(100, 110),
                 Size = new System.Drawing.Size(150, 30)
             };
-            btnLogin.Click += BtnLogin_Click; // Asocia un evento al botón
+            btnLogin.Click += BtnLogin_Click; 
 
             // Agrega controles al formulario
             this.Controls.Add(txtUsername);
@@ -52,7 +48,7 @@ namespace Loggin
                 Size = new System.Drawing.Size(150, 20)
             };
 
-            // Evento Enter: cuando el cuadro de texto obtiene el foco, si contiene el texto del marcador de posición, lo elimina.
+            // Evento Enter: cuando el cuadro de texto obtiene el foco, si contiene el texto del marcador de posiciÃ³n, lo elimina.
             textBox.Enter += (sender, e) =>
             {
                 if (textBox.Text == placeholderText)
@@ -60,12 +56,12 @@ namespace Loggin
                     textBox.Text = "";
                     if (isPassword)
                     {
-                        textBox.PasswordChar = '*'; // Oculta la contraseña
+                        textBox.PasswordChar = '*'; // Oculta la contraseÃ±a
                     }
                 }
             };
 
-            // Evento Leave: cuando el cuadro de texto pierde el foco y está vacío, vuelve a mostrar el texto del marcador de posición.
+            // Evento Leave: cuando el cuadro de texto pierde el foco y estÃ¡ vacÃ­o, vuelve a mostrar el texto del marcador de posiciÃ³n.
             textBox.Leave += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
@@ -78,7 +74,7 @@ namespace Loggin
                 }
             };
 
-            // Establece el texto de marcador de posición inicial.
+            // Establece el texto de marcador de posiciÃ³n inicial.
             textBox.Text = placeholderText;
 
             if (isPassword)
@@ -94,7 +90,7 @@ namespace Loggin
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            // Calcula el hash de la contraseña
+            // Calcula el hash de la contraseÃ±a
             string hashedPassword = HashPassword(password);
 
             string connectionString = @"Data Source=DESKTOP-K9F4KBH;Initial Catalog=Loggin;Integrated Security=True;TrustServerCertificate=True";
@@ -109,62 +105,62 @@ namespace Loggin
 
             if (count > 0)
             {
-                // El usuario existe, verifica la contraseña y el estado
-                string passwordQuery = "SELECT Contraseña FROM Usuarios WHERE NombreUsuario = @Username";
+                // El usuario existe, verifica la contraseÃ±a y el estado
+                string passwordQuery = "SELECT ContraseÃ±a FROM Usuarios WHERE NombreUsuario = @Username";
                 using SqlCommand passwordCommand = new SqlCommand(passwordQuery, connection);
                 passwordCommand.Parameters.AddWithValue("@Username", username);
 
                 using SqlDataReader reader = passwordCommand.ExecuteReader();
                 if (reader.Read())
                 {
-                    // Obtener la contraseña desde la columna "Contraseña"
-                    string storedPassword = reader["Contraseña"].ToString();
+                    // Obtener la contraseÃ±a desde la columna "ContraseÃ±a"
+                    string storedPassword = reader["ContraseÃ±a"].ToString();
                     int userState = Convert.ToInt32(reader["Estado"]);
 
                     if (userState == 0)
                     {
-                        // El usuario está bloqueado
-                        MessageBox.Show("Debe contactarse con el Administrador. El usuario está bloqueado.", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // El usuario estÃ¡ bloqueado
+                        MessageBox.Show("Debe contactarse con el Administrador. El usuario estÃ¡ bloqueado.", "Inicio de SesiÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        // Verificar la contraseña
+                        // Verificar la contraseÃ±a
                         if (VerifyPassword(hashedPassword, storedPassword))
                         {
-                            // Iniciar sesión exitosamente
-                            MessageBox.Show("Inicio de sesión exitoso.", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Aquí puedes abrir la ventana principal de la aplicación
+                            // Iniciar sesiÃ³n exitosamente
+                            MessageBox.Show("Inicio de sesiÃ³n exitoso.", "Inicio de SesiÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         }
                         else
                         {
-                            // Contraseña incorrecta
-                            MessageBox.Show("Contraseña incorrecta.", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // ContraseÃ±a incorrecta
+                            MessageBox.Show("ContraseÃ±a incorrecta.", "Inicio de SesiÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
                 else
                 {
                     // Usuario no encontrado
-                    MessageBox.Show("El usuario no existe.", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El usuario no existe.", "Inicio de SesiÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 // El usuario no existe
-                MessageBox.Show("El usuario no existe.", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El usuario no existe.", "Inicio de SesiÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private bool VerifyPassword(string inputPassword, string storedPassword)
         {
-            // Compara el hash de la contraseña proporcionada con el hash almacenado
+            // Compara el hash de la contraseÃ±a proporcionada con el hash almacenado
             return inputPassword == storedPassword;
         }
 
         private static string HashPassword(string password)
         {
             using SHA256 sha256 = SHA256.Create();
-            // Calcula el hash de la contraseña
+            // Calcula el hash de la contraseÃ±a
             byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
 
             // Convierte los bytes a una cadena hexadecimal
