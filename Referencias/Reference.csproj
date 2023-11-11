@@ -1,0 +1,15 @@
+﻿
+<Reference Include="System.Data.SqlClient" />
+
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Data.SqlClient" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.Form2.resources
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.csproj.GenerateResource.cache
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.AssemblyInfoInputs.cache
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.AssemblyInfo.cs
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.csproj.CoreCompileInputs.cache
+C:\Users\Matrix\source\repos\Loggin\bin\Debug\net7.0-windows\Loggin.exe
+C:\Users\Matrix\source\repos\Loggin\bin\Debug\net7.0-windows\Loggin.deps.json
+C:\Users\Matrix\source\repos\Loggin\bin\Debug\net7.0-windows\Loggin.runtimeconfig.json
+C:\Users\Matrix\source\repos\Loggin\bin\Debug\net7.0-windows\Loggin.dll
+C:\Users\Matrix\source\repos\Loggin\bin\Debug\net7.0-windows\Loggin.pdb
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.dll
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\refint\Loggin.dll
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.pdb
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\Loggin.genruntimeconfig.cache
+C:\Users\Matrix\source\repos\Loggin\obj\Debug\net7.0-windows\ref\Loggin.dll
